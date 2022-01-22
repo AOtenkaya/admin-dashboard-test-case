@@ -10,8 +10,8 @@
 import jwt from '../../http/requests/auth/jwt/index.js'
 
 
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
 import router from '@/router'
 
 export default {
@@ -304,23 +304,22 @@ export default {
 
     return new Promise((resolve, reject) => {
       jwt.login(payload.userDetails.email, payload.userDetails.password)
-        .then(response => {
-
+        .then(({data}) => {
           // If there's user data in response
-          if (response.data.userData) {
+          if (data.Data.user) {
             // Navigate User to homepage
             router.push(router.currentRoute.query.to || '/')
 
             // Set accessToken
-            localStorage.setItem('accessToken', response.data.accessToken)
+            localStorage.setItem('accessToken', data.Data.token)
 
             // Update user details
-            commit('UPDATE_USER_INFO', response.data.userData, {root: true})
+            commit('UPDATE_USER_INFO', data.Data.user, {root: true})
 
             // Set bearer token in axios
-            commit('SET_BEARER', response.data.accessToken)
+            commit('SET_BEARER', data.Data.token)
 
-            resolve(response)
+            resolve(data)
           } else {
             reject({message: 'Wrong Email or Password'})
           }
