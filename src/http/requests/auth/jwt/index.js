@@ -45,7 +45,7 @@ export default {
     })
   },
   login (email, pwd) {
-    return axios.post('/api/auth/login', {
+    return axios.post('https://iapitest.eva.guru/user/auth', {
       email,
       password: pwd
     })
