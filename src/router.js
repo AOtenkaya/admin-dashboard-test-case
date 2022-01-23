@@ -51,7 +51,7 @@ const router = new Router({
         {
           path: '/eva-project/executive-dashboard',
           name: 'executive-dashboard',
-          component: () => import('./views/EvaProjectExecutiveDashboard.vue'),
+          component: () => import('./views/apps/executiveDashboard/ExecutiveDashboard.vue'),
           meta: {
             rule: 'admin'
           }
