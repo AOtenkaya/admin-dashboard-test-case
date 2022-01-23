@@ -1,9 +1,8 @@
 <template>
-  <div class="the-navbar__user-meta flex items-center" v-if="activeUserInfo.firstName && activeUserInfo.lastName">
+  <div class="the-navbar__user-meta flex items-center" v-if="activeUserFullName">
 
     <div class="text-right leading-tight hidden sm:block">
-      <span class="font-semibold mr-2">{{ activeUserInfo.firstName }}</span>
-      <span class="font-semibold">{{ activeUserInfo.lastName }}</span>
+      <span class="font-semibold mr-2">{{ activeUserFullName }}</span>
       <p>
         <small>Available</small>
       </p>
@@ -12,7 +11,7 @@
     <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
 
       <div class="con-img ml-3">
-        <img v-if="activeUserInfo.photoURL" key="onlineImg" src="@/assets/images/profile/user-uploads/eva-pp.jpg" alt="user-img" width="40" height="40" class="rounded-full shadow-md cursor-pointer block" />
+        <img key="onlineImg" src="@/assets/images/profile/user-uploads/eva-pp.jpg" alt="user-img" width="40" height="40" class="rounded-full shadow-md cursor-pointer block" />
       </div>
 
       <vs-dropdown-menu class="vx-navbar-dropdown">
@@ -78,10 +77,10 @@ export default {
     }
   },
   computed: {
-    activeUserInfo () {
-      console.log('this.$store.state.AppActiveUser', this.$store.state.AppActiveUser)
-      return this.$store.state.AppActiveUser
-    }
+    activeUserFullName () {
+      const { firstName = 'Eva', lastName = 'Homework' } = this.$store.state.AppActiveUser
+      return `${firstName}, ${lastName}`;
+    },
   },
   methods: {
     logout () {
