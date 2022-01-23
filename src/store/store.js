@@ -24,6 +24,7 @@ Vue.use(Vuex)
 // import moduleEmail from './email/moduleEmail.js'
 import moduleAuth from './auth/moduleAuth.js'
 import moduleECommerce from './eCommerce/moduleECommerce.js'
+import moduleExecutiveDashboard from './executive-dashboard/moduleExecutiveDashboard.js'
 
 
 export default new Vuex.Store({
@@ -37,7 +38,8 @@ export default new Vuex.Store({
     // chat: moduleChat,
     // email: moduleEmail,
     auth: moduleAuth,
-    eCommerce: moduleECommerce
+    eCommerce: moduleECommerce,
+    executiveDashboard: moduleExecutiveDashboard,
   },
   strict: process.env.NODE_ENV !== 'production'
 })

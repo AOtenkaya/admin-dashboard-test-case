@@ -29,6 +29,21 @@ export default [
   // },
   {
     url: null,
+    name: 'EvaTestProject',
+    icon: 'PieChartIcon',
+    i18n: 'EvaTestProject',
+    submenu: [
+      {
+        url: '/eva-project/executive-dashboard',
+        name: 'Executive Dashboard',
+        slug: 'executive-dashboard',
+        icon: 'bar-chart',
+        i18n: 'ExecutiveDashboard'
+      },
+    ]
+  },
+  {
+    url: null,
     name: 'Dashboard',
     tag: '2',
     tagColor: 'warning',
