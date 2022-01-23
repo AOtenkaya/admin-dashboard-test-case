@@ -10,6 +10,7 @@
 
 import Vue from 'vue'
 import App from './App.vue'
+import './plugins/highcharts';
 
 // Vuesax Component Framework
 import Vuesax from 'vuesax'
