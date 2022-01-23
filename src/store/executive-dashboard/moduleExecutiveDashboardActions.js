@@ -8,10 +8,40 @@
 ==========================================================================================*/
 
 import axios from 'axios';
+const marketplace = 'Amazon.com';
+const sellerId = 'A2AYEFBRNOKNF9';
+const accessToken = localStorage.getItem('accessToken')
 
 export default {
-  fetch1stTableData ({commit, state}, payload) {
+  fetchSalesFinanceData() {
+    const parameters = {
+      marketplace,
+      sellerId,
+    }
+
+    return axios({
+        method: 'post',
+        url: 'https://iapitest.eva.guru/data/sales-finances',
+        data: parameters,
+        headers: {
+          Authorization: 'Bearer ' + accessToken
+        }
+      });
   },
-  fetch2ndTableData ({commit, state}, payload) {
+  fetchSalesExpenseData(_, params) {
+    const parameters = {
+      ...params,
+      marketplace,
+      sellerId,
+    }
+
+    return axios({
+      method: 'post',
+      url: 'https://iapitest.eva.guru/data/sales-expense/',
+      data: parameters,
+      headers: {
+        Authorization: 'Bearer ' + accessToken
+      }
+    });
   },
 }
