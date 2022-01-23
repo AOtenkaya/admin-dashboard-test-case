@@ -311,6 +311,7 @@ export default {
             router.push(router.currentRoute.query.to || '/')
 
             // Set accessToken
+            // We already have a function to set accessToken
             localStorage.setItem('accessToken', data.Data.token)
 
             // Update user details
