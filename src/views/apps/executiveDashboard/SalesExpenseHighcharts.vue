@@ -1,29 +1,16 @@
 <template>
   <div>
     <vx-card :title="'Expenses & Refunds'">
-      <!-- SLOT = ACTIONS -->
       <template slot="actions">
-          aaa
+        
       </template>
 
       <div slot="no-body">
-          <!-- CHART -->
           <highcharts
             v-if="isChartDataReady"
             :options="chartOptions"
             ref="salesExpenseChart"
           />
-
-          <!-- CHART DATA -->
-          <!-- <ul class="mb-1">
-              <li v-for="customerData in customersData.analyticsData" :key="customerData.customerType" class="flex justify-between py-3 px-6 border d-theme-border-grey-light border-solid border-r-0 border-l-0 border-b-0">
-                  <span class="flex items-center">
-                      <span class="inline-block h-3 w-3 rounded-full mr-2" :class="`bg-${customerData.color}`"></span>
-                      <span class="font-semibold">{{ customerData.customerType }}</span>
-                  </span>
-                  <span>{{ customerData.counts }}</span>
-              </li>
-          </ul> -->
       </div>
     </vx-card>
   </div>  
@@ -34,19 +21,13 @@ export default {
   name: 'SalesExpenseHighcharts',
   props: {
     salesExpenseData: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
   mounted() {
-    this.chartOptions.xAxis.categories = this.salesFinanceData.salesFinanceDates;
-    this.chartOptions.series.find(item => item.name === 'Total Sales').data = this.salesFinanceData.totalSales;
-    this.chartOptions.series.find(item => item.name === 'Reimbursement').data = this.salesFinanceData.reimbursement;
-    this.chartOptions.series.find(item => item.name === 'Total Refund').data = this.salesFinanceData.refund;
-    this.chartOptions.series.find(item => item.name === 'Total Expense').data = this.salesFinanceData.totalExpenses;
-    this.chartOptions.series.find(item => item.name === 'Quantity').data = this.salesFinanceData.itemQuantity;
+    this.chartOptions.series[0].data = this.salesExpenseData;
 
-    console.log('this.chartOptions', this.chartOptions)
     this.$nextTick(() => {
       this.isChartDataReady = true;
     })
@@ -62,14 +43,14 @@ export default {
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares in January, 2018'
+            text: ''
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '{series.name}: <b>{point.percentage:.1f} $</b>'
         },
         accessibility: {
             point: {
-                valueSuffix: '%'
+                valueSuffix: '$'
             }
         },
         plotOptions: {
@@ -83,13 +64,11 @@ export default {
             }
         },
         series: [{
-            name: 'Brands',
+            name: 'Amount',
             colorByPoint: true,
             data: [{
                 name: 'Chrome',
                 y: 61.41,
-                sliced: true,
-                selected: true
             }, {
                 name: 'Internet Explorer',
                 y: 11.84
@@ -112,7 +91,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>

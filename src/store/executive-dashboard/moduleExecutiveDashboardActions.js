@@ -37,7 +37,23 @@ export default {
 
     return axios({
       method: 'post',
-      url: 'https://iapitest.eva.guru/data/sales-expense/',
+      url: 'https://iapitest.eva.guru/data/sales-expense',
+      data: parameters,
+      headers: {
+        Authorization: 'Bearer ' + accessToken
+      }
+    });
+  },
+  filterExpensesWithDate(_, params) {
+    const parameters = {
+      ...params,
+      marketplace,
+      sellerId,
+    }
+
+    return axios({
+      method: 'post',
+      url: 'https://iapitest.eva.guru/data/sales-expense-by-request-date',
       data: parameters,
       headers: {
         Authorization: 'Bearer ' + accessToken
