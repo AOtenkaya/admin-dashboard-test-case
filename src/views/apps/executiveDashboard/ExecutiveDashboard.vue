@@ -72,7 +72,6 @@ export default {
           item.name = item.type;
           return item;
         })
-        console.log({result})
 
         this.salesExpenseData = result;
       })
@@ -100,7 +99,6 @@ export default {
             item.name = item.type;
             return item;
           })
-          console.log({result})
 
           this.salesExpenseData = result;
         })
