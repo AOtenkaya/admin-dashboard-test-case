@@ -16,7 +16,7 @@ https://aotenkaya.github.io/eva
 9. I made charts work as requested. But didnt finish it fully detailed on monday. I was only able to finish last fixes on Tuesday morning and finished my changes.
 10. I made build and deployment settings and published my project on github pages. Putted it's details and this explanation part and actually create an md for now.
 
-##P.S:
+## P.S:
 Before i finish my readme i want to thank you for this project it was really an enjoyable project for me. I also really liked the template you chose. I liked it too even it was a bit hard for me to use it's own classes and premade components :)
 I deployed my project on github pages but on routing i thing there is a bug on page refreshing. When we refresh on some detail page it gives routing error which i'm no sure about it but it looks about server configuration because it didnt exist on localhost tests. But as a frontend developer our every task works just fine on our localhost am i right? :D
 One last thing is i think tokens we get from your api has an expiry date so sometimes i get problem on already cached token so i logout and login to fixed that. But just like i didnt implement token interceptor i didnt made settings to check that token expirecy and relogin request since i thought project's main focus was not that.
