@@ -322,8 +322,6 @@ export default {
 
     this.offsetTmz = ZoneList;
 
-    console.log('ZoneList',ZoneList);
-
 
     //  User Reward Card
     this.$http.get('/api/user/checkpoint-reward')

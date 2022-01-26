@@ -46,7 +46,15 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/dashboard/analytics'
+          redirect: '/eva-project/executive-dashboard'
+        },
+        {
+          path: '/eva-project/executive-dashboard',
+          name: 'executive-dashboard',
+          component: () => import('./views/apps/executiveDashboard/ExecutiveDashboard.vue'),
+          meta: {
+            rule: 'admin'
+          }
         },
         {
           path: '/dashboard/analytics',
