@@ -1,5 +1,3 @@
-# eva
-
 ### GH Page Demo
 https://aotenkaya.github.io/eva
 
